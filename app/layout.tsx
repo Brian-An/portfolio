@@ -11,6 +11,7 @@ const tinos = Tinos({
 export const metadata: Metadata = {
   title: "Brian An",
   description: "Portfolio site for Brian An",
+  icons: "/favicon.png",
 };
 
 export default function RootLayout({
