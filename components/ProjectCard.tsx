@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import * as motion from "motion/react-client";
 
 interface ProjectCardProps {
   title: string;
@@ -17,7 +18,10 @@ export default function ProjectCard({
   techStack,
 }: ProjectCardProps) {
   return (
-    <div className="border border-primary overflow-hidden p-4">
+    <motion.div
+      className="border border-primary overflow-hidden p-4"
+      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+    >
       <div className="flex flex-col gap-2">
         <div className="justify-between flex w-full">
           <h2 className="text-xl font-bold">{title}</h2>
@@ -41,6 +45,6 @@ export default function ProjectCard({
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
