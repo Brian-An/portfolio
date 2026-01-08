@@ -2,26 +2,32 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Github, Linkedin, Mail } from "lucide-react";
+import * as motion from "motion/react-client";
+import { socialLinks } from "@/constants/socials";
 
 export default function Socials() {
   return (
     <div className="flex gap-2">
-      <Button asChild variant="outline">
-        <Link href="mailto:brian.an1@uwaterloo.ca" target="_blank">
-          <Mail />
-        </Link>
-      </Button>
-      <Button asChild variant="outline">
-        <Link href="https://www.linkedin.com/in/brian-an06/" target="_blank">
-          <Linkedin />
-        </Link>
-      </Button>
-      <Button asChild variant="outline">
-        <Link href="https://github.com/Brian-An" target="_blank">
-          <Github />
-        </Link>
-      </Button>
+      {socialLinks.map((social, index) => (
+        <motion.div
+          key={social.href}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.4,
+            delay: 0.4 + index * 0.1,
+            ease: "easeOut",
+          }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Button asChild variant="outline">
+            <Link href={social.href} target="_blank">
+              <social.icon />
+            </Link>
+          </Button>
+        </motion.div>
+      ))}
     </div>
   );
 }

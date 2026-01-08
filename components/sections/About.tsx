@@ -2,10 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import * as motion from "motion/react-client";
 
 export default function About() {
   return (
-    <div className="max-w-xl flex flex-col gap-2 mt-2 mb-2">
+    <motion.div
+      className="max-w-xl flex flex-col gap-2 mt-2 mb-2"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <div>
         <h1 className="font-semibold mb-1">currently:</h1>
         <div>
@@ -127,6 +133,6 @@ export default function About() {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
