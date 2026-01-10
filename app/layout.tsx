@@ -75,7 +75,7 @@ const profileJsonLd = {
     "@type": "Person",
     name: "Brian An",
     url: siteUrl,
-    image: `${siteUrl}/favicon.png`,
+    image: `${siteUrl}/favicon.ico`,
     jobTitle: "Software Developer",
     description:
       "Computer Science and Finance student at the University of Waterloo",
