@@ -34,10 +34,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Brian An", url: siteUrl }],
   creator: "Brian An",
   publisher: "Brian An",
-  icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
