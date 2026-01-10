@@ -63,23 +63,37 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const websiteJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
+  "@type": "WebSite",
   name: "Brian An",
   url: siteUrl,
-  image: `${siteUrl}/favicon.png`,
-  jobTitle: "Software Developer",
   description:
-    "Computer Science and Finance student at the University of Waterloo",
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "University of Waterloo",
+    "Portfolio website of Brian An, a Computer Science and Finance student at the University of Waterloo.",
+};
+
+const profileJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: "Brian An",
+    url: siteUrl,
+    image: `${siteUrl}/favicon.png`,
+    jobTitle: "Software Developer",
+    description:
+      "Computer Science and Finance student at the University of Waterloo",
+    email: "brian.an1@uwaterloo.ca",
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "University of Waterloo",
+      url: "https://uwaterloo.ca",
+    },
+    sameAs: [
+      "https://www.linkedin.com/in/brian-an06/",
+      "https://github.com/Brian-An",
+    ],
   },
-  sameAs: [
-    "https://www.linkedin.com/in/brian-an06/",
-    "https://github.com/Brian-An",
-  ],
 };
 
 export default function RootLayout({
