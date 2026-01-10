@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Tinos } from "next/font/google";
 import "./globals.css";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const tinos = Tinos({
   variable: "--font-tinos",
@@ -110,6 +111,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${tinos.variable} font-serif antialiased`}>
+        <AnimatedBackground />
         {children}
       </body>
     </html>

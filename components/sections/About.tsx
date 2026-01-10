@@ -15,86 +15,78 @@ export default function About() {
       <div>
         <h1 className="font-semibold mb-1">currently:</h1>
         <div>
-          <div className="flex items-center gap-1">
-            <span>&gt; computer science and finance student at </span>
-            <span>
-              <Link
-                href="https://uwaterloo.ca/computing-financial-management/"
-                target="_blank"
-                className="font-semibold text-decoration: underline flex items-center gap-1"
-              >
-                <Image
-                  src="/logo/uwaterloo_logo.png"
-                  alt="University of Waterloo logo"
-                  width={16}
-                  height={16}
-                  className="inline-block"
-                />
-                university of waterloo
-              </Link>
-            </span>
+          <div className="flex flex-wrap items-center gap-1">
+            <span>&gt; computer science and finance student at</span>
+            <Link
+              href="https://uwaterloo.ca/computing-financial-management/"
+              target="_blank"
+              className="font-semibold underline inline-flex items-center gap-1"
+            >
+              <Image
+                src="/logo/uwaterloo_logo.png"
+                alt="University of Waterloo logo"
+                width={16}
+                height={16}
+                className="inline-block"
+              />
+              university of waterloo
+            </Link>
           </div>
-          <div className="flex items-center gap-1">
-            <span>&gt; software developer at </span>
-            <span>
-              <Link
-                href="https://www.uwdatascience.ca/"
-                target="_blank"
-                className="font-semibold text-decoration: underline flex items-center gap-1"
-              >
-                <Image
-                  src="/logo/uwdsc_logo.png"
-                  alt="University of Waterloo Data Science Club logo"
-                  width={16}
-                  height={16}
-                  className="inline-block"
-                />
-                university of waterloo data science club
-              </Link>
-            </span>
+          <div className="flex flex-wrap items-center gap-1">
+            <span>&gt; software developer at</span>
+            <Link
+              href="https://www.uwdatascience.ca/"
+              target="_blank"
+              className="font-semibold underline inline-flex items-center gap-1"
+            >
+              <Image
+                src="/logo/uwdsc_logo.png"
+                alt="University of Waterloo Data Science Club logo"
+                width={16}
+                height={16}
+                className="inline-block"
+              />
+              university of waterloo data science club
+            </Link>
           </div>
         </div>
       </div>
       <div>
         <h1 className="font-semibold mb-1">previously:</h1>
         <div>
-          <div className="flex items-center gap-1">
-            <span>&gt; applied ai intern at </span>
-            <span>
-              <Link
-                href="https://www.rogers.com/"
-                target="_blank"
-                className="font-semibold text-decoration: underline flex items-center gap-1"
-              >
-                <Image
-                  src="/logo/rogers_communications_logo.svg"
-                  alt="Rogers Communications logo"
-                  width={16}
-                  height={16}
-                  className="inline-block"
-                />
-                rogers communications
-              </Link>
-            </span>
+          <div className="flex flex-wrap items-center gap-1">
+            <span>&gt; applied ai intern at</span>
+            <Link
+              href="https://www.rogers.com/"
+              target="_blank"
+              className="font-semibold underline inline-flex items-center gap-1"
+            >
+              <Image
+                src="/logo/rogers_communications_logo.svg"
+                alt="Rogers Communications logo"
+                width={16}
+                height={16}
+                className="inline-block"
+              />
+              rogers communications
+            </Link>
           </div>
-          <div className="flex items-center gap-1">
-            <span>&gt; software developer intern at </span>
-            <span>
-              <Link
-                href="https://www.touchbistro.com/"
-                target="_blank"
-                className="font-semibold text-decoration: underline flex items-center gap-1"
-              >
-                <Image
-                  src="/logo/touchbistro_logo.jpeg"
-                  alt="TouchBistro logo"
-                  width={16}
-                  height={16}
-                  className="inline-block"
-                />
-                touchbistro
-              </Link>
-            </span>
+          <div className="flex flex-wrap items-center gap-1">
+            <span>&gt; software developer intern at</span>
+            <Link
+              href="https://www.touchbistro.com/"
+              target="_blank"
+              className="font-semibold underline inline-flex items-center gap-1"
+            >
+              <Image
+                src="/logo/touchbistro_logo.jpeg"
+                alt="TouchBistro logo"
+                width={16}
+                height={16}
+                className="inline-block"
+              />
+              touchbistro
+            </Link>
           </div>
         </div>
       </div>
