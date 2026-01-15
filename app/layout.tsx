@@ -14,7 +14,7 @@ const siteUrl = "https://www.brianan.ca";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Brian An | Software Developer & CS Student",
+    default: "Brian An",
     template: "%s | Brian An",
   },
   description:
