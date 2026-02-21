@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import * as motion from "motion/react-client";
-import DrawingCanvas from "@/components/DrawingCanvas";
 
 export default function About() {
   return (
@@ -126,7 +125,6 @@ export default function About() {
           </p>
         </div>
       </div>
-      <DrawingCanvas />
     </motion.div>
   );
 }

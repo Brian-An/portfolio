@@ -1,5 +1,21 @@
 export const PROJECTS = [
   {
+    title: "Wisconsin Law Enforcement RAG System",
+    description:
+      "A RAG system for the Wisconsin Law Enforcement officers to query state statutes, case law, and department policies through a conversational chat interface.",
+    link: "https://github.com/Brian-An/Wisconsin-Law-RAG-Chat",
+    techStack: [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "OpenAI API",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "ChromaDB",
+    ],
+  },
+  {
     title: "AdBrain",
     description:
       "An AI-powered ad generator that turns short product or event descriptions into high-quality promotional videos in seconds.",
