@@ -16,6 +16,13 @@ export const PROJECTS = [
     ],
   },
   {
+    title: "UWGitRank",
+    description:
+      "Waterloo student GitHub rankings scored by stars, PRs, commits, and peer endorsements — see who’s making an impact in open source across UW faculties. (100+ Users & 6000+ games played)",
+    link: "https://uwgitrank.com",
+    techStack: ["Next.js", "Supabase", "Prisma", "TypeScript", "Tailwind CSS"],
+  },
+  {
     title: "AdBrain",
     description:
       "An AI-powered ad generator that turns short product or event descriptions into high-quality promotional videos in seconds.",
