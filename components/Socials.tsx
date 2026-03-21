@@ -20,12 +20,16 @@ export default function Socials() {
           }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          className="group relative"
         >
           <Button asChild variant="outline">
             <Link href={social.href} target="_blank">
               <social.icon />
             </Link>
           </Button>
+          <span className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 rounded bg-foreground px-2 py-1 text-xs text-background opacity-0 transition-opacity group-hover:opacity-100">
+            {social.label}
+          </span>
         </motion.div>
       ))}
     </div>
