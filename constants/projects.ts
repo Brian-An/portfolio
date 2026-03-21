@@ -77,7 +77,7 @@ export const PROJECTS = [
     ],
   },
   {
-    title: "C++ Chess Engine (CS 246: Object Oriented Programming)",
+    title: "C++ Chess Engine (CS 246: OOP)",
     description:
       "Designed a modular C++20 chess engine using factory and observer patterns, featuring a configurable decision-tree–based AI, low coupling architecture, and extensible gameplay features (undo, opening detection, move prediction). Due to academic integrity policies, the code is not available for public viewing.",
     link: "https://student.cs.uwaterloo.ca/~cs246/W26/index.shtml",

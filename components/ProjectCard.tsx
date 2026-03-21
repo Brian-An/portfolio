@@ -23,13 +23,13 @@ export default function ProjectCard({
       whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
     >
       <div className="flex flex-col gap-2">
-        <div className="justify-between flex w-full">
-          <h2 className="text-xl font-bold">{title}</h2>
-          <Button asChild variant={"outline"} size="sm" className="w-fit">
+        <div>
+          <Button asChild variant={"outline"} size="sm" className="float-right ml-2 mb-1 w-fit shrink-0">
             <Link href={link} target="_blank" rel="noopener noreferrer">
               View Project
             </Link>
           </Button>
+          <h2 className="text-lg font-bold sm:text-xl">{title}</h2>
         </div>
         <p className="text-muted-foreground text-sm">{description}</p>
         {techStack && techStack.length > 0 && (

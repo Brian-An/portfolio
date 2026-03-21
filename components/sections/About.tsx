@@ -7,7 +7,7 @@ import * as motion from "motion/react-client";
 export default function About() {
   return (
     <motion.div
-      className="max-w-xl flex flex-col gap-2 mt-2 mb-2"
+      className="max-w-xl flex flex-col gap-2 mt-2 mb-2 overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
