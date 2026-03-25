@@ -33,6 +33,7 @@ export default function Header({ activeTab, setActiveTab }: HeaderProps) {
           <TabsList>
             <TabsTrigger value="about">About</TabsTrigger>
             <TabsTrigger value="projects">Projects</TabsTrigger>
+            <TabsTrigger value="gallery">Gallery</TabsTrigger>
           </TabsList>
         </Tabs>
       </motion.div>

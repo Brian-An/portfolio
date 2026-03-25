@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Socials from "@/components/Socials";
 import About from "@/components/sections/About";
 import Projects from "@/components/sections/Projects";
+import Gallery from "@/components/sections/Gallery";
 import AsciiCamera from "@/components/AsciiCamera";
 
 export default function Home() {
@@ -14,9 +15,10 @@ export default function Home() {
     <main className="flex flex-col items-center justify-center px-4 py-4 mt-8 sm:mt-16">
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
       <AsciiCamera />
-      <div className="w-full max-w-xl">
+      <div className={`w-full ${activeTab === "gallery" ? "max-w-3xl" : "max-w-xl"} transition-all duration-300`}>
         {activeTab === "about" && <About />}
         {activeTab === "projects" && <Projects />}
+        {activeTab === "gallery" && <Gallery />}
         <Socials />
       </div>
     </main>
