@@ -33,20 +33,20 @@ export default function About() {
             </Link>
           </div>
           <div className="flex flex-wrap items-center gap-1">
-            <span>&gt; software developer at</span>
+            <span>&gt; software engineer intern at</span>
             <Link
-              href="https://www.uwdatascience.ca/"
+              href="https://www.axl.vc/"
               target="_blank"
               className="font-semibold underline inline-flex items-center gap-1"
             >
               <Image
-                src="/logo/uwdsc_logo.png"
-                alt="University of Waterloo Data Science Club logo"
+                src="/logo/axl_logo.png"
+                alt="AXL logo"
                 width={16}
                 height={16}
                 className="inline-block"
               />
-              university of waterloo data science club
+              axl venture studio
             </Link>
           </div>
         </div>
@@ -86,6 +86,23 @@ export default function About() {
                 className="inline-block"
               />
               touchbistro
+            </Link>
+          </div>
+          <div className="flex flex-wrap items-center gap-1">
+            <span>&gt; software developer at</span>
+            <Link
+              href="https://www.uwdatascience.ca/"
+              target="_blank"
+              className="font-semibold underline inline-flex items-center gap-1"
+            >
+              <Image
+                src="/logo/uwdsc_logo.png"
+                alt="University of Waterloo Data Science Club logo"
+                width={16}
+                height={16}
+                className="inline-block"
+              />
+              university of waterloo data science club
             </Link>
           </div>
         </div>
