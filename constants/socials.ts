@@ -12,5 +12,5 @@ export const socialLinks: SocialLink[] = [
   { href: "mailto:brian.an1@uwaterloo.ca", icon: FiMail, label: "Email" },
   { href: "https://www.linkedin.com/in/brian-an06/", icon: FiLinkedin, label: "LinkedIn" },
   { href: "https://github.com/Brian-An", icon: FiGithub, label: "GitHub" },
-  { href: "https://www.x.com/hibrianan", icon: FaXTwitter, label: "X" },
+  { href: "https://www.x.com/imbrianan", icon: FaXTwitter, label: "X" },
 ];
