@@ -117,7 +117,7 @@ export default function About() {
             <span> on </span>
             <span>
               <Link
-                href="https://www.instagram.com/imbrianan"
+                href="https://www.instagram.com/hibrianan"
                 target="_blank"
                 className="font-semibold text-decoration: underline"
               >
