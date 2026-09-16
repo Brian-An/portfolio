@@ -32,6 +32,11 @@ export default function About() {
               university of waterloo
             </Link>
           </div>
+        </div>
+      </div>
+      <div>
+        <h1 className="font-semibold mb-1">previously:</h1>
+        <div>
           <div className="flex flex-wrap items-center gap-1">
             <span>&gt; software engineer intern at</span>
             <Link
@@ -49,11 +54,6 @@ export default function About() {
               axl venture studio
             </Link>
           </div>
-        </div>
-      </div>
-      <div>
-        <h1 className="font-semibold mb-1">previously:</h1>
-        <div>
           <div className="flex flex-wrap items-center gap-1">
             <span>&gt; applied ai intern at</span>
             <Link
