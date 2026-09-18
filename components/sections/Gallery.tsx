@@ -33,9 +33,11 @@ export default function Gallery() {
     >
       <div className="columns-2 sm:columns-3 gap-3">
         {galleryPhotos.map((photo, index) => (
-          <motion.div
+          <motion.button
+            type="button"
+            aria-label={`Open photo: ${photo.alt}`}
             key={photo.src}
-            className="mb-3 break-inside-avoid cursor-pointer overflow-hidden rounded-lg"
+            className="block w-full mb-3 break-inside-avoid cursor-pointer overflow-hidden rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             initial={{ opacity: 0, filter: "blur(8px)" }}
             whileInView={{ opacity: 1, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-50px" }}
@@ -48,12 +50,12 @@ export default function Gallery() {
               alt={photo.alt}
               width={400}
               height={300}
-              sizes="(max-width: 640px) 50vw, 33vw"
+              sizes="(max-width: 639px) calc((100vw - 44px) / 2), (max-width: 799px) calc((100vw - 56px) / 3), 248px"
               quality={75}
               priority={index < 6}
               className="w-full h-auto hover:brightness-105 transition-[filter] duration-200"
             />
-          </motion.div>
+          </motion.button>
         ))}
       </div>
 

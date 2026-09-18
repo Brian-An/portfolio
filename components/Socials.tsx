@@ -23,11 +23,11 @@ export default function Socials() {
           className="group relative"
         >
           <Button asChild variant="outline">
-            <Link href={social.href} target="_blank">
+            <Link href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
               <social.icon />
             </Link>
           </Button>
-          <span className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 rounded bg-foreground px-2 py-1 text-xs text-background opacity-0 transition-opacity group-hover:opacity-100">
+          <span className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 rounded bg-foreground px-2 py-1 text-xs text-background opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
             {social.label}
           </span>
         </motion.div>

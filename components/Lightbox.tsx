@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import * as motion from "motion/react-client";
-import { AnimatePresence } from "motion/react";
 import type { GalleryPhoto } from "@/constants/gallery";
 
 interface LightboxProps {
@@ -12,8 +10,12 @@ interface LightboxProps {
 }
 
 export default function Lightbox({ photo, onClose }: LightboxProps) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
   useEffect(() => {
     if (!photo) return;
+    const dialog = dialogRef.current;
+    if (!dialog) return;
 
     const savedOverflow = document.body.style.overflow;
     const savedPosition = document.body.style.position;
@@ -21,68 +23,63 @@ export default function Lightbox({ photo, onClose }: LightboxProps) {
     const savedTop = document.body.style.top;
     const scrollY = window.scrollY;
 
+    dialog.showModal();
     document.body.style.overflow = "hidden";
     document.body.style.position = "fixed";
     document.body.style.width = "100%";
     document.body.style.top = `-${scrollY}px`;
 
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", handleEscape);
-
     return () => {
+      dialog.close();
       document.body.style.overflow = savedOverflow;
       document.body.style.position = savedPosition;
       document.body.style.width = savedWidth;
       document.body.style.top = savedTop;
       window.scrollTo(0, scrollY);
-      document.removeEventListener("keydown", handleEscape);
     };
-  }, [photo, onClose]);
+  }, [photo]);
 
   return (
-    <AnimatePresence>
+    <dialog
+      ref={dialogRef}
+      aria-label="Photo viewer"
+      aria-describedby={photo ? "photo-caption" : undefined}
+      className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-transparent p-0 text-white backdrop:bg-black/80 backdrop:backdrop-blur-sm"
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
+    >
       {photo && (
-        <motion.div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 backdrop-blur-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          onClick={onClose}
-        >
+        <>
           <button
-            className="absolute top-4 right-4 text-white/70 hover:text-white text-2xl cursor-pointer"
+            aria-label="Close photo"
+            className="absolute top-4 right-4 z-10 flex size-11 items-center justify-center text-white/70 hover:text-white text-2xl cursor-pointer focus-visible:outline-2 focus-visible:outline-white"
             onClick={onClose}
           >
             ✕
           </button>
-
-          <motion.div
-            className="flex flex-col items-center gap-3"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            onClick={(e) => e.stopPropagation()}
-          >
+          <button
+            aria-label="Close photo backdrop"
+            tabIndex={-1}
+            className="absolute inset-0 cursor-default"
+            onClick={onClose}
+          />
+          <div className="pointer-events-none relative flex h-full flex-col items-center justify-center gap-3">
             <Image
               src={photo.src}
               alt={photo.alt}
               width={4032}
               height={3024}
-              unoptimized
-              className="max-w-[90vw] max-h-[85vh] w-auto h-auto object-contain rounded-lg"
+              sizes="(max-aspect-ratio: 4/3) 90vw, 110vh"
+              className="pointer-events-auto max-w-[90vw] max-h-[80dvh] w-auto h-auto object-contain rounded-lg"
             />
-            {(photo.caption ?? photo.alt) && (
-              <p className="text-white/60 text-sm font-serif text-center max-w-[90vw] px-4">
-                {photo.caption ?? photo.alt}
-              </p>
-            )}
-          </motion.div>
-        </motion.div>
+            <p id="photo-caption" className="pointer-events-auto text-white/80 text-sm font-serif text-center max-w-[90vw] px-4">
+              {photo.caption ?? photo.alt}
+            </p>
+          </div>
+        </>
       )}
-    </AnimatePresence>
+    </dialog>
   );
 }

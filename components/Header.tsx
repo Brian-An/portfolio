@@ -1,42 +1,42 @@
 "use client";
 
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import * as motion from "motion/react-client";
 
-interface HeaderProps {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
-}
+const pages = [
+  { href: "/", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/gallery", label: "Gallery" },
+];
 
-export default function Header({ activeTab, setActiveTab }: HeaderProps) {
+export default function Header() {
+  const pathname = usePathname();
+
   return (
-    <motion.div
-      className="justify-between flex w-full max-w-xl gap-4"
+    <motion.header
+      className="justify-between items-center flex flex-wrap w-full max-w-xl gap-3"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <motion.h1
-        className="text-xl font-semibold"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
-      >
-        brian an
-      </motion.h1>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-      >
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList>
-            <TabsTrigger value="about">About</TabsTrigger>
-            <TabsTrigger value="projects">Projects</TabsTrigger>
-            <TabsTrigger value="gallery">Gallery</TabsTrigger>
-          </TabsList>
-        </Tabs>
-      </motion.div>
-    </motion.div>
+      <h1 className="text-xl font-semibold whitespace-nowrap"><Link href="/">brian an</Link></h1>
+      <nav aria-label="Main navigation" className="flex gap-2 py-[3px]">
+        {pages.map(({ href, label }) => (
+          <Link
+            key={href}
+            href={href}
+            aria-current={pathname === href ? "page" : undefined}
+            className={`inline-flex h-9 items-center justify-center border bg-background px-3 sm:px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
+              pathname === href
+                ? "border-primary text-primary shadow-md"
+                : "border-border/50 text-muted-foreground shadow-xs hover:bg-accent hover:text-accent-foreground"
+            }`}
+          >
+            {label}
+          </Link>
+        ))}
+      </nav>
+    </motion.header>
   );
 }
