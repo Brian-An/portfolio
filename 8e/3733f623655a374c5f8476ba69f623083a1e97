@@ -1,0 +1,14 @@
+constants/gallery.ts
+  h_3f7c194ad24a0c 14-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8e3733f623655a374c5f8476ba69f623083a1e97",
+  "prompts": {},
+  "humans": {
+    "h_3f7c194ad24a0c": {
+      "author": "brian-an <brian.an0906@hotmail.com>"
+    }
+  }
+}
