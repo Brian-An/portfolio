@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Brian An",
   },
   description:
-    "Brian An is a Computer Science and Finance student at the University of Waterloo. Explore my portfolio of software development projects, skills, and experience.",
+    "Brian An is a Computer Science and Finance student at the University of Waterloo.",
   keywords: [
     "Brian An",
     "Software Developer",
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Brian An",
-    title: "Brian An | Software Developer & CS Student",
+    title: "Brian An | Software Engineer",
     description:
-      "Computer Science and Finance student at the University of Waterloo. Explore my portfolio of software development projects and experience.",
+      "Computer Science and Finance student at the University of Waterloo.",
   },
   robots: {
     index: true,
@@ -64,7 +64,7 @@ const websiteJsonLd = {
   name: "Brian An",
   url: siteUrl,
   description:
-    "Portfolio website of Brian An, a Computer Science and Finance student at the University of Waterloo.",
+    "Computer Science and Finance student at the University of Waterloo.",
 };
 
 const profileJsonLd = {
