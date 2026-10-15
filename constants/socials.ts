@@ -1,17 +1,12 @@
-import { IconType } from "react-icons";
-import { FiMail, FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
-
 export interface SocialLink {
   href: string;
-  icon: IconType;
   label: string;
 }
 
 export const socialLinks: SocialLink[] = [
-  { href: "mailto:brian.an1@uwaterloo.ca", icon: FiMail, label: "Email" },
-  { href: "https://www.linkedin.com/in/brian-an06/", icon: FiLinkedin, label: "LinkedIn" },
-  { href: "https://github.com/Brian-An", icon: FiGithub, label: "GitHub" },
-  { href: "https://www.instagram.com/hibrianan", icon: FiInstagram, label: "Instagram" },
-  { href: "https://www.x.com/imbrianan", icon: FaXTwitter, label: "X" },
+  { href: "mailto:brian.an1@uwaterloo.ca", label: "Email" },
+  { href: "https://www.linkedin.com/in/brian-an06/", label: "LinkedIn" },
+  { href: "https://github.com/Brian-An", label: "GitHub" },
+  { href: "https://www.instagram.com/hibrianan", label: "Instagram" },
+  { href: "https://www.x.com/imbrianan", label: "X" },
 ];

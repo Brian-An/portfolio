@@ -286,3 +286,29 @@ test('photography hint animates on desktop hover and keyboard focus', async ({ p
   await page.locator('.portrait-link').focus();
   await expect(hint).toHaveCSS('opacity', '1');
 });
+
+test('Golden Gate photos share the correct dates across captions and lightbox', async ({ page }) => {
+  await page.goto('/photography');
+  for (const [filename, date] of [['goldengate2.jpg', 'Oct 2025'], ['goldgate.jpg', 'Dec 2024']]) {
+    const photo = page.locator('.gallery-photo').filter({ has: page.locator(`img[src*="${filename}"]`) });
+    await photo.focus();
+    await expect(photo.locator('.photo-caption')).toHaveText(`${date} · San Francisco`);
+    await expect(photo).toHaveAccessibleName(`Open photo: San Francisco, ${date}`);
+    await photo.click();
+    const dialog = page.getByRole('dialog');
+    await expect(dialog.getByRole('img')).toHaveAttribute('alt', `San Francisco, ${date}`);
+    await expect(dialog.locator('#photo-caption')).toHaveText(`${date} · San Francisco`);
+    await page.keyboard.press('Escape');
+  }
+});
+
+test('missing pages provide a keyboard-accessible route home', async ({ page }) => {
+  const response = await page.goto('/missing-page');
+  expect(response?.status()).toBe(404);
+  await expect(page.getByRole('heading', { name: 'Page Not Found' })).toBeVisible();
+  const home = page.getByRole('link', { name: 'Go Back Home' });
+  await home.focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL('/');
+  await expect(page.getByRole('heading', { name: 'Brian An', exact: true })).toBeVisible();
+});

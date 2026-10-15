@@ -6,9 +6,6 @@ export default defineConfig({
   use: {
     baseURL: 'http://127.0.0.1:3000',
     trace: 'retain-on-failure',
-    launchOptions: {
-      args: ['--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream'],
-    },
   },
   projects: [
     { name: 'desktop', use: { ...devices['Desktop Chrome'] } },

@@ -16,7 +16,7 @@ export default function Gallery() {
         {galleryPhotos.map((photo, index) => (
           <button
             type="button"
-            aria-label={`Open photo: ${photo.alt}`}
+            aria-label={`Open photo: ${photo.location}, ${photo.date}`}
             key={photo.src}
             className="gallery-photo"
             onClick={() => setSelectedPhoto(photo)}

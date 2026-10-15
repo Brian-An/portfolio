@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
@@ -11,9 +10,7 @@ export default function NotFound() {
           Sorry, the page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
       </div>
-      <Button variant="outline" asChild>
-        <Link href="/">Go Back Home</Link>
-      </Button>
+      <Link href="/" className="inline-link">Go Back Home</Link>
     </div>
   );
 }

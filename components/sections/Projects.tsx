@@ -1,4 +1,3 @@
-import ProjectCard from "@/components/ProjectCard";
 import { PROJECTS } from "@/constants/projects";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -10,7 +9,7 @@ export default function Projects({ standalone = true }: { standalone?: boolean }
       {standalone && <Link href="/" className="back-link">Back</Link>}
       <Heading id="projects-title">Projects</Heading>
       <ul className="project-list">
-        {(standalone ? PROJECTS : PROJECTS.slice(0, 3)).map((project) => <li key={project.link}><ProjectCard title={project.title} link={project.link} /></li>)}
+        {(standalone ? PROJECTS : PROJECTS.slice(0, 3)).map((project) => <li key={project.link}><a className="project-link inline-link" href={project.link} target="_blank" rel="noopener noreferrer">{project.title}</a></li>)}
       </ul>
       {!standalone && <Link href="/projects" className="more-projects">More projects<ArrowRight size={14} strokeWidth={1.5} aria-hidden="true" /></Link>}
     </section>

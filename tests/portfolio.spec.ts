@@ -23,7 +23,7 @@ test('routes support direct links, refresh, and browser history', async ({ page 
 
 test('gallery works by keyboard and restores focus after closing', async ({ page }) => {
   await page.goto('/photography');
-  const thumbnail = page.getByRole('button', { name: 'Open photo: dec 2024 - los angeles', exact: true }).first();
+  const thumbnail = page.getByRole('button', { name: 'Open photo: Los Angeles, Dec 2024', exact: true }).first();
   await thumbnail.focus();
   await page.keyboard.press('Enter');
   const dialog = page.getByRole('dialog');

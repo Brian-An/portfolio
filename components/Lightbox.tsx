@@ -68,7 +68,7 @@ export default function Lightbox({ photo, onClose }: LightboxProps) {
           <div className="pointer-events-none relative flex h-full flex-col items-center justify-center gap-3">
             <Image
               src={photo.src}
-              alt={photo.alt}
+              alt={`${photo.location}, ${photo.date}`}
               width={photo.width}
               height={photo.height}
               sizes="(max-aspect-ratio: 4/3) 90vw, 110vh"
