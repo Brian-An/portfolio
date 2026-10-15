@@ -1,147 +1,31 @@
-"use client";
-
-import Link from "next/link";
-import Image from "next/image";
-import * as motion from "motion/react-client";
+import PortraitFallback from "@/components/PortraitFallback";
+import DotPortrait from "@/components/DotPortrait";
+import LinkPreview from "@/components/LinkPreview";
+import Projects from "@/components/sections/Projects";
+import Socials from "@/components/Socials";
+import { education, experiences } from "@/constants/experience";
 
 export default function About() {
   return (
-    <motion.div
-      className="max-w-xl flex flex-col gap-2 mt-2 mb-2 overflow-hidden"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
-      <div>
-        <h1 className="font-semibold mb-1">currently:</h1>
-        <div>
-          <div className="flex flex-wrap items-center gap-1">
-            <span>&gt; computer science and finance student at</span>
-            <Link
-              href="https://uwaterloo.ca/computing-financial-management/"
-              target="_blank"
-              className="font-semibold underline inline-flex items-center gap-1"
-            >
-              <Image
-                src="/logo/uwaterloo_logo.png"
-                alt="University of Waterloo logo"
-                width={16}
-                height={16}
-                className="inline-block"
-              />
-              university of waterloo
-            </Link>
-          </div>
+    <div className="profile-container">
+      <section className="intro" aria-labelledby="intro-title">
+        <DotPortrait fallback={<PortraitFallback />} />
+        <div className="intro-copy">
+          <h1 id="intro-title">Brian An</h1>
+          <p className="education">CS + Finance at <LinkPreview {...education} /></p>
+          <p className="profile-bio">I’m interested in product engineering and applied AI. I like making content, going to the gym, and playing volleyball and golf.</p>
+          <section className="work-section" aria-labelledby="work-title">
+            <h2 id="work-title">Work</h2>
+            <ul className="work-list">
+              {experiences.map((experience) => (
+                <li key={experience.href}><span className="experience-role">{experience.role} at </span><LinkPreview {...experience} /></li>
+              ))}
+            </ul>
+          </section>
+          <Projects standalone={false} />
         </div>
-      </div>
-      <div>
-        <h1 className="font-semibold mb-1">previously:</h1>
-        <div>
-          <div className="flex flex-wrap items-center gap-1">
-            <span>&gt; software engineer intern at</span>
-            <Link
-              href="https://www.axl.vc/"
-              target="_blank"
-              className="font-semibold underline inline-flex items-center gap-1"
-            >
-              <Image
-                src="/logo/axl_logo.png"
-                alt="AXL logo"
-                width={16}
-                height={16}
-                className="inline-block"
-              />
-              axl venture studio
-            </Link>
-          </div>
-          <div className="flex flex-wrap items-center gap-1">
-            <span>&gt; applied ai intern at</span>
-            <Link
-              href="https://www.rogers.com/"
-              target="_blank"
-              className="font-semibold underline inline-flex items-center gap-1"
-            >
-              <Image
-                src="/logo/rogers_communications_logo.svg"
-                alt="Rogers Communications logo"
-                width={16}
-                height={16}
-                className="inline-block"
-              />
-              rogers communications
-            </Link>
-          </div>
-          <div className="flex flex-wrap items-center gap-1">
-            <span>&gt; software developer intern at</span>
-            <Link
-              href="https://www.touchbistro.com/"
-              target="_blank"
-              className="font-semibold underline inline-flex items-center gap-1"
-            >
-              <Image
-                src="/logo/touchbistro_logo.jpeg"
-                alt="TouchBistro logo"
-                width={16}
-                height={16}
-                className="inline-block"
-              />
-              touchbistro
-            </Link>
-          </div>
-          <div className="flex flex-wrap items-center gap-1">
-            <span>&gt; software developer at</span>
-            <Link
-              href="https://www.uwdatascience.ca/"
-              target="_blank"
-              className="font-semibold underline inline-flex items-center gap-1"
-            >
-              <Image
-                src="/logo/uwdsc_logo.png"
-                alt="University of Waterloo Data Science Club logo"
-                width={16}
-                height={16}
-                className="inline-block"
-              />
-              university of waterloo data science club
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div>
-        <h1 className="font-semibold mb-1">personal stuff:</h1>
-        <div>
-          <p>&gt; i love playing volleyball and golfing with my friends</p>
-          <div>
-            <span>&gt; i enjoy making content at </span>
-            <span className="font-semibold">@imbrianan</span>
-            <span> on </span>
-            <span>
-              <Link
-                href="https://www.instagram.com/hibrianan"
-                target="_blank"
-                className="font-semibold text-decoration: underline"
-              >
-                instagram
-              </Link>
-            </span>
-            <span> and </span>
-            <span>
-              <Link
-                href="https://www.tiktok.com/@imbrianan"
-                target="_blank"
-                className="font-semibold text-decoration: underline"
-              >
-                tiktok
-              </Link>
-            </span>
-          </div>
-          <p>&gt; i love trying new foods lmk if you have any recs</p>
-          <p>
-            &gt; feel free to reach out! always open to connecting with new
-            people
-          </p>
-        </div>
-      </div>
-    </motion.div>
+      </section>
+      <Socials />
+    </div>
   );
 }

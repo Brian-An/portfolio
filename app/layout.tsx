@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Tinos } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
-import AnimatedBackground from "@/components/AnimatedBackground";
 
-const tinos = Tinos({
-  variable: "--font-tinos",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["400", "700"],
 });
 
 const siteUrl = "https://www.brianan.ca";
@@ -76,7 +74,6 @@ const profileJsonLd = {
     "@type": "Person",
     name: "Brian An",
     url: siteUrl,
-    image: `${siteUrl}/favicon.ico`,
     jobTitle: "Software Developer",
     description:
       "Computer Science and Finance student at the University of Waterloo",
@@ -103,15 +100,14 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c") }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(profileJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(profileJsonLd).replace(/</g, "\\u003c") }}
         />
       </head>
-      <body className={`${tinos.variable} font-serif antialiased`}>
-        <AnimatedBackground />
+      <body className={`${geist.variable} antialiased`}>
         {children}
       </body>
     </html>

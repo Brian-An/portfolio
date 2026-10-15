@@ -1,53 +1,38 @@
 import { expect, test } from '@playwright/test';
 
-declare global {
-  interface Window {
-    cameraStreams: MediaStream[];
-    releaseCamera: () => void;
-  }
-}
-
 test('routes support direct links, refresh, and browser history', async ({ page }) => {
-  await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await page.getByRole('link', { name: 'Projects', exact: true }).click();
-  await expect(page).toHaveURL('/projects');
-  await expect(page.getByRole('heading', { name: 'UWGitRank' })).toBeVisible();
-  await page.getByRole('link', { name: 'Gallery', exact: true }).click();
-  await expect(page).toHaveURL('/gallery');
-  await expect(page.getByRole('button', { name: /^Open photo:/ }).first()).toHaveCSS('opacity', '1');
-  await page.reload({ waitUntil: 'domcontentloaded' });
-  await expect(page.getByRole('link', { name: 'Gallery', exact: true })).toHaveAttribute('aria-current', 'page');
-  await expect(page.locator('header')).toHaveCSS('opacity', '1');
-  await page.goBack({ waitUntil: 'domcontentloaded' });
-  await expect(page).toHaveURL('/projects');
-  await page.goForward({ waitUntil: 'domcontentloaded' });
-  await expect(page).toHaveURL('/gallery');
-  for (const [path, title] of [['/', 'Brian An'], ['/projects', 'Projects | Brian An'], ['/gallery', 'Gallery | Brian An']]) {
-    const response = await page.goto(path, { waitUntil: 'domcontentloaded' });
+  await page.goto('/');
+  await page.getByRole('link', { name: 'Explore the photo gallery' }).click();
+  await expect(page).toHaveURL('/photography');
+  await page.reload();
+  await expect(page.getByRole('button', { name: /^Open photo:/ }).first()).toBeVisible();
+  await page.getByRole('link', { name: 'Back', exact: true }).click();
+  await expect(page).toHaveURL('/');
+  await page.goBack();
+  await expect(page).toHaveURL('/photography');
+  await page.goForward();
+  await expect(page).toHaveURL('/');
+  for (const [path, title] of [['/', 'Brian An'], ['/projects', 'Projects | Brian An'], ['/photography', 'Photography | Brian An']]) {
+    const response = await page.goto(path);
     expect(response?.status()).toBe(200);
     await expect(page).toHaveTitle(title);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://www.brianan.ca${path === '/' ? '' : path}`);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
   }
 });
 
 test('gallery works by keyboard and restores focus after closing', async ({ page }) => {
-  await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await page.getByText('Gallery', { exact: true }).click();
+  await page.goto('/photography');
   const thumbnail = page.getByRole('button', { name: 'Open photo: dec 2024 - los angeles', exact: true }).first();
-  await expect(thumbnail).toHaveCSS('opacity', '1');
   await thumbnail.focus();
-  await expect(thumbnail).toBeFocused();
   await page.keyboard.press('Enter');
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
   await expect(page.getByRole('button', { name: 'Close photo', exact: true })).toBeFocused();
   await page.keyboard.press('Tab');
-  await expect(page.getByRole('link', { name: 'Gallery', exact: true })).not.toBeFocused();
   await page.keyboard.press('Tab');
   await expect(page.getByRole('button', { name: 'Close photo', exact: true })).toBeFocused();
-  const src = await dialog.getByRole('img').getAttribute('src');
-  expect(src).toContain('/_next/image?');
+  expect(await dialog.getByRole('img').getAttribute('src')).toContain('/_next/image?');
   await page.keyboard.press('Escape');
   await expect(dialog).not.toBeVisible();
   await expect(thumbnail).toBeFocused();
@@ -62,37 +47,18 @@ test('gallery works by keyboard and restores focus after closing', async ({ page
 });
 
 test('social links have accessible names', async ({ page }) => {
-  await page.goto('/', { waitUntil: 'domcontentloaded' });
-  for (const name of ['Email', 'LinkedIn', 'GitHub', 'X']) {
-    await expect(page.getByRole('link', { name, exact: true })).toBeVisible();
-  }
+  await page.goto('/');
+  for (const name of ['Email', 'LinkedIn', 'GitHub', 'Instagram', 'X']) await expect(page.getByRole('link', { name, exact: true })).toBeVisible();
 });
 
-for (const delayed of [false, true]) {
-  test(`camera releases capture when closed${delayed ? ' before permission resolves' : ''}`, async ({ page }) => {
-    await page.addInitScript((delay) => {
-      window.cameraStreams = [];
-      const pending: (() => void)[] = [];
-      let released = false;
-      window.releaseCamera = () => {
-        released = true;
-        pending.forEach(resolve => resolve());
-      };
-      const getUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
-      navigator.mediaDevices.getUserMedia = async (constraints) => {
-        const stream = await getUserMedia(constraints);
-        window.cameraStreams.push(stream);
-        if (delay && !released) await new Promise<void>((resolve) => { pending.push(resolve); });
-        return stream;
-      };
-    }, delayed);
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('header')).toHaveCSS('opacity', '1');
-    await page.getByRole('button', { name: 'click me for a surprise' }).click();
-    await expect.poll(() => page.evaluate(() => window.cameraStreams.length)).toBeGreaterThan(0);
-    if (!delayed) await expect(page.locator('pre')).not.toBeEmpty();
-    await page.getByRole('button', { name: /^(✕|Close camera)$/ }).click();
-    if (delayed) await page.evaluate(() => window.releaseCamera());
-    await expect.poll(() => page.evaluate(() => window.cameraStreams.every(stream => stream.getTracks().every(track => track.readyState === 'ended')))).toBe(true);
-  });
-}
+
+test('photography replaces the gallery route in navigation and sitemap', async ({ page, request }) => {
+  const response = await request.get('/gallery', { maxRedirects: 0 });
+  expect(response.status()).toBe(404);
+  await page.goto('/photography');
+  await expect(page).toHaveURL('/photography');
+  await expect(page.getByRole('heading', { name: 'Photography', exact: true })).toBeVisible();
+  const sitemap = await (await request.get('/sitemap.xml')).text();
+  expect(sitemap).toContain('https://www.brianan.ca/photography');
+  expect(sitemap).not.toContain('https://www.brianan.ca/gallery');
+});

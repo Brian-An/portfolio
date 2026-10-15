@@ -44,3 +44,6 @@ next-env.d.ts
 docs/
 /playwright-report/
 /test-results/
+
+# Local portrait inputs are never served or committed.
+/.portrait-source/

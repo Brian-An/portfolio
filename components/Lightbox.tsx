@@ -69,13 +69,13 @@ export default function Lightbox({ photo, onClose }: LightboxProps) {
             <Image
               src={photo.src}
               alt={photo.alt}
-              width={4032}
-              height={3024}
+              width={photo.width}
+              height={photo.height}
               sizes="(max-aspect-ratio: 4/3) 90vw, 110vh"
-              className="pointer-events-auto max-w-[90vw] max-h-[80dvh] w-auto h-auto object-contain rounded-lg"
+              className="pointer-events-auto max-w-[90vw] max-h-[80dvh] w-auto h-auto object-contain"
             />
-            <p id="photo-caption" className="pointer-events-auto text-white/80 text-sm font-serif text-center max-w-[90vw] px-4">
-              {photo.caption ?? photo.alt}
+            <p id="photo-caption" className="pointer-events-auto text-white/80 text-sm text-center max-w-[90vw] px-4">
+              {photo.date} · {photo.location}
             </p>
           </div>
         </>

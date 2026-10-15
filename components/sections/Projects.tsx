@@ -1,32 +1,18 @@
-"use client";
-
 import ProjectCard from "@/components/ProjectCard";
 import { PROJECTS } from "@/constants/projects";
-import * as motion from "motion/react-client";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-export default function Projects() {
+export default function Projects({ standalone = true }: { standalone?: boolean }) {
+  const Heading = standalone ? "h1" : "h2";
   return (
-    <motion.div
-      className="max-w-xl flex flex-col gap-4 mt-2 mb-2"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-    >
-      {PROJECTS.map((project, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
-        >
-          <ProjectCard
-            title={project.title}
-            description={project.description}
-            link={project.link}
-            techStack={project.techStack}
-          />
-        </motion.div>
-      ))}
-    </motion.div>
+    <section className={`projects-section${standalone ? " standalone-projects" : ""}`} aria-labelledby="projects-title">
+      {standalone && <Link href="/" className="back-link">Back</Link>}
+      <Heading id="projects-title">Projects</Heading>
+      <ul className="project-list">
+        {(standalone ? PROJECTS : PROJECTS.slice(0, 3)).map((project) => <li key={project.link}><ProjectCard title={project.title} link={project.link} /></li>)}
+      </ul>
+      {!standalone && <Link href="/projects" className="more-projects">More projects<ArrowRight size={14} strokeWidth={1.5} aria-hidden="true" /></Link>}
+    </section>
   );
 }

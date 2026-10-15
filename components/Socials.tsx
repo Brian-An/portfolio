@@ -1,37 +1,5 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import * as motion from "motion/react-client";
 import { socialLinks } from "@/constants/socials";
 
 export default function Socials() {
-  return (
-    <div className="flex gap-2">
-      {socialLinks.map((social, index) => (
-        <motion.div
-          key={social.href}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.4,
-            delay: 0.4 + index * 0.1,
-            ease: "easeOut",
-          }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="group relative"
-        >
-          <Button asChild variant="outline">
-            <Link href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
-              <social.icon />
-            </Link>
-          </Button>
-          <span className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 rounded bg-foreground px-2 py-1 text-xs text-background opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
-            {social.label}
-          </span>
-        </motion.div>
-      ))}
-    </div>
-  );
+  return <div className="social-links">{socialLinks.map((social) => <a key={social.href} href={social.href} target={social.href.startsWith("mailto:") ? undefined : "_blank"} rel="noopener noreferrer" aria-label={social.label}>{social.label}</a>)}</div>;
 }

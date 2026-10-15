@@ -18,7 +18,7 @@ export const PROJECTS = [
   {
     title: "UWGitRank",
     description:
-      "Waterloo student GitHub rankings scored by stars, PRs, commits, and peer endorsements — see who’s making an impact in open source across UW faculties. (100+ Users & 6000+ games played)",
+      "Waterloo student GitHub rankings scored by stars, PRs, commits, and peer endorsements - see who’s making an impact in open source across UW faculties. (100+ Users & 6000+ games played)",
     link: "https://uwgitrank.com",
     techStack: ["Next.js", "Supabase", "Prisma", "TypeScript", "Tailwind CSS"],
   },
@@ -77,14 +77,14 @@ export const PROJECTS = [
     ],
   },
   {
-    title: "C++ Chess Engine (CS 246: OOP)",
+    title: "C++ Chess Engine",
     description:
-      "Designed a modular C++20 chess engine using factory and observer patterns, featuring a configurable decision-tree–based AI, low coupling architecture, and extensible gameplay features (undo, opening detection, move prediction). Due to academic integrity policies, the code is not available for public viewing.",
+      "Designed a modular C++20 chess engine using factory and observer patterns, featuring a configurable decision-tree based AI, low coupling architecture, and extensible gameplay features (undo, opening detection, move prediction). Due to academic integrity policies, the code is not available for public viewing.",
     link: "https://student.cs.uwaterloo.ca/~cs246/W26/index.shtml",
     techStack: ["C++20", "X11", "Makefile"],
   },
   {
-    title: "RevealAI (In Progress)",
+    title: "RevealAI",
     description:
       "A chrome extension that identifies AI-generated images by checking c2pa metadata and a lightweight computer vision model to look for invisible watermarks.",
     link: "https://github.com/Brian-An/revealai",

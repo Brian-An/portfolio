@@ -2,18 +2,18 @@ import type { Metadata } from "next";
 import Gallery from "@/components/sections/Gallery";
 
 export const metadata: Metadata = {
-  title: "Gallery",
+  title: "Photography",
   description: "A collection of Brian An's travel and everyday photography.",
-  alternates: { canonical: "/gallery" },
+  alternates: { canonical: "/photography" },
   openGraph: {
-    title: "Gallery | Brian An",
+    title: "Photography | Brian An",
     description: "A collection of Brian An's travel and everyday photography.",
-    url: "/gallery",
+    url: "/photography",
     type: "website",
     siteName: "Brian An",
   },
 };
 
-export default function GalleryPage() {
+export default function PhotographyPage() {
   return <Gallery />;
 }
