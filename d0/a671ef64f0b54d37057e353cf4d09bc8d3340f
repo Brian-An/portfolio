@@ -1,0 +1,19 @@
+components/DotPortrait.tsx
+  s_2094508237e0a1::t_59f732d1ed83a4 13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d0a671ef64f0b54d37057e353cf4d09bc8d3340f",
+  "prompts": {},
+  "sessions": {
+    "s_2094508237e0a1": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1406b-420e-7061-a809-1de9c34fdecb",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "brian-an <brian.an0906@hotmail.com>"
+    }
+  }
+}
