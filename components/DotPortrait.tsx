@@ -10,7 +10,7 @@ const floatingPhotos = [
   { photo: galleryPhotos[0], x: "-7%", y: "-3%", angle: "-12deg", size: "40%" },
   { photo: galleryPhotos[6], x: "69%", y: "-5%", angle: "11deg", size: "35%" },
   { photo: galleryPhotos[3], x: "30%", y: "15%", angle: "7deg", size: "34%" },
-  { photo: galleryPhotos[7], x: "69%", y: "54%", angle: "-9deg", size: "39%" },
+  { photo: galleryPhotos[7], x: "69%", y: "54%", angle: "9deg", size: "39%" },
   { photo: galleryPhotos[5], x: "-7%", y: "58%", angle: "8deg", size: "36%" },
   { photo: galleryPhotos[17], x: "34%", y: "67%", angle: "-7deg", size: "33%" },
 ];
