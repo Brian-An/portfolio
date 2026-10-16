@@ -1,0 +1,54 @@
+components/GitHubContributions.tsx
+  s_98c8f1854f869e::t_195f1c7daafea4 1-2,4-20,23-24,35-71,77-79,81,84-86,90-91,95-96,99-119
+  s_98c8f1854f869e::t_02a9b3f300c837 97
+  s_98c8f1854f869e::t_97ae70365a970c 3,21-22,25-34,72-76,80,87-89,92-94,98
+  s_98c8f1854f869e::t_c463aaf137e744 82-83
+tests/contributions.spec.ts
+  s_98c8f1854f869e::t_71d9d926caa272 16-20
+  s_98c8f1854f869e::t_3b0db571edd881 91-98
+  s_98c8f1854f869e::t_c463aaf137e744 78
+  s_98c8f1854f869e::t_020913470c5385 1-15,21-77,79-90,99-101
+app/not-found.tsx
+  s_98c8f1854f869e::t_97ae70365a970c 2,6-11
+  s_98c8f1854f869e::t_8de26a768228d9 13
+tests/lost-page.spec.ts
+  s_98c8f1854f869e::t_3b0db571edd881 8-51,53,56-67,69-83
+  s_98c8f1854f869e::t_e4c12cd44f01eb 52,54-55,68,84
+  s_98c8f1854f869e::t_28ee8a4c895665 1-7
+app/globals.css
+  s_98c8f1854f869e::t_97ae70365a970c 68-70,82-86
+  s_98c8f1854f869e::t_c463aaf137e744 65,67,76,136
+  s_98c8f1854f869e::t_02a9b3f300c837 87
+  s_98c8f1854f869e::t_8de26a768228d9 26-31,34,55,66,71-75,77-81,133,135
+  s_98c8f1854f869e::t_fdf76efcb73345 59,61,64
+  s_98c8f1854f869e::t_71d9d926caa272 60,126,132
+components/WanderingTraveler.tsx
+  s_98c8f1854f869e::t_26d27053a6b2e0 1-2,4-18,22-54,56-58,60-71,74-77,79-80,84,87-91,94-95,114,116,119,122-127,129,131-135,137-142,144-146,148
+  s_98c8f1854f869e::t_02a9b3f300c837 3,19-21,55,59,78,81-83,85-86
+  s_98c8f1854f869e::t_5c1199218c4f7f 92-93,96-113,115,117-118,120-121,128,130,136,143,147
+  s_98c8f1854f869e::t_5ca5c6be51206a 72-73
+app/layout.tsx
+  s_98c8f1854f869e::t_8de26a768228d9 4,112-117
+README.md
+  s_98c8f1854f869e::t_c463aaf137e744 28-30
+app/(portfolio)/projects/page.tsx
+  s_98c8f1854f869e::t_8de26a768228d9 3,19-24
+tests/redesign.spec.ts
+  s_98c8f1854f869e::t_97ae70365a970c 308-309
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9751f44c70f4edfc97a2cbe453b28b7e367b413e",
+  "prompts": {},
+  "sessions": {
+    "s_98c8f1854f869e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a142e6-1e22-7340-a18d-5fa9a1697505",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "brian-an <brian.an0906@hotmail.com>"
+    }
+  }
+}
