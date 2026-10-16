@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Projects from "@/components/sections/Projects";
+import GitHubContributions from "@/components/GitHubContributions";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -15,5 +16,10 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  return <Projects />;
+  return (
+    <div className="projects-page">
+      <Projects />
+      <GitHubContributions />
+    </div>
+  );
 }

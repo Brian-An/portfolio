@@ -305,8 +305,8 @@ test('Golden Gate photos share the correct dates across captions and lightbox', 
 test('missing pages provide a keyboard-accessible route home', async ({ page }) => {
   const response = await page.goto('/missing-page');
   expect(response?.status()).toBe(404);
-  await expect(page.getByRole('heading', { name: 'Page Not Found' })).toBeVisible();
-  const home = page.getByRole('link', { name: 'Go Back Home' });
+  await expect(page.getByRole('heading', { name: 'Looks like you’re lost' })).toBeVisible();
+  const home = page.getByRole('link', { name: 'Go back home' });
   await home.focus();
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL('/');

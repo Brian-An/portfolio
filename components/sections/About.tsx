@@ -2,7 +2,6 @@ import PortraitFallback from "@/components/PortraitFallback";
 import DotPortrait from "@/components/DotPortrait";
 import LinkPreview from "@/components/LinkPreview";
 import Projects from "@/components/sections/Projects";
-import Socials from "@/components/Socials";
 import { education, experiences } from "@/constants/experience";
 
 export default function About() {
@@ -25,7 +24,6 @@ export default function About() {
           <Projects standalone={false} />
         </div>
       </section>
-      <Socials />
     </div>
   );
 }

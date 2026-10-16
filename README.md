@@ -25,6 +25,9 @@ npm run test:e2e
 
 Browser tests cover desktop and mobile navigation, photo captions, keyboard access, portrait animation, website previews, and social links.
 
+The projects contribution calendar loads Brian-An's past year of activity from the public [GitHub Contributions API](https://github.com/grubersjoe/github-contributions-api).
+The service caches data for one hour; if it is unavailable, the projects list and GitHub profile link remain usable.
+
 Photo dates and locations are maintained in `constants/gallery.ts`.
 The `date` field supplies the caption and image labels.
 
