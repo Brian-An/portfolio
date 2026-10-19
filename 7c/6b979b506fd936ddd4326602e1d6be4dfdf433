@@ -1,0 +1,23 @@
+app/opengraph-image.alt.txt
+  s_5b6e9f3d764e3c::t_333b80ddc53915 1
+app/(portfolio)/photography/page.tsx
+  s_5b6e9f3d764e3c::t_cd882523b5684a 14
+app/(portfolio)/projects/page.tsx
+  s_5b6e9f3d764e3c::t_cd882523b5684a 15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7c6b979b506fd936ddd4326602e1d6be4dfdf433",
+  "prompts": {},
+  "sessions": {
+    "s_5b6e9f3d764e3c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a155da-8f09-77c0-a303-2801249ce033",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "brian-an <brian.an0906@hotmail.com>"
+    }
+  }
+}
