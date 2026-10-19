@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     url: "/photography",
     type: "website",
     siteName: "Brian An",
+    images: ["/opengraph-image.png"],
   },
 };
 

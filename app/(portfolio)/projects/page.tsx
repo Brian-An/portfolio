@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     url: "/projects",
     type: "website",
     siteName: "Brian An",
+    images: ["/opengraph-image.png"],
   },
 };
 
