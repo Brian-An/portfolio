@@ -4,6 +4,10 @@ export const PROJECTS = [
     link: "https://github.com/Brian-An/Wisconsin-Law-RAG-Chat",
   },
   {
+    title: "Turnstone",
+    link: "https://github.com/Brian-An/turnstone",
+  },
+  {
     title: "UWGitRank",
     link: "https://uwgitrank.com",
   },
@@ -30,9 +34,5 @@ export const PROJECTS = [
   {
     title: "RevealAI",
     link: "https://github.com/Brian-An/revealai",
-  },
-  {
-    title: "Turnstone",
-    link: "https://github.com/Brian-An/turnstone",
   },
 ];
