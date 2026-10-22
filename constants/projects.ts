@@ -31,4 +31,8 @@ export const PROJECTS = [
     title: "RevealAI",
     link: "https://github.com/Brian-An/revealai",
   },
+  {
+    title: "Turnstone",
+    link: "https://github.com/Brian-An/turnstone",
+  },
 ];

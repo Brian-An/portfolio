@@ -151,7 +151,7 @@ test('home shows three projects and links to the complete list', async ({ page }
   await expect(page.locator('.project-list a')).toHaveCount(3);
   await page.getByRole('link', { name: 'More projects', exact: true }).click();
   await expect(page).toHaveURL('/projects');
-  await expect(page.locator('.project-list a')).toHaveCount(8);
+  await expect(page.locator('.project-list a')).toHaveCount(9);
 });
 
 test('experience preview sits to the right of the work list', async ({ page, isMobile }) => {

@@ -58,6 +58,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .social-links a:hover { color: var(--foreground); }
 .projects-page { width: 100%; max-width: 680px; margin: 32px auto 16px; }
 .projects-page .standalone-projects { margin: 0; }
+.standalone-projects .project-list li { margin-block: 2px; }
 .standalone-projects h1 { font-size: 28px; font-weight: 500; margin: 24px 0 20px; letter-spacing: -.8px; }
 .back-link { display: inline-block; font-size: 12px; color: var(--muted); padding: 8px 0; }
 .back-link:hover { text-decoration: underline; text-underline-offset: 4px; }

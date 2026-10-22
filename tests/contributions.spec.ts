@@ -35,7 +35,7 @@ for (const failure of ['unavailable', 'malformed', 'empty'] as const) {
     const section = page.getByRole('region', { name: 'Contributions' });
     await expect(section.getByText('Activity is temporarily unavailable.')).toBeVisible();
     await expect(section.getByRole('link', { name: 'Contributions', exact: true })).toBeVisible();
-    await expect(page.locator('.project-list a')).toHaveCount(8);
+    await expect(page.locator('.project-list a')).toHaveCount(9);
   });
 }
 
@@ -43,7 +43,7 @@ test('projects and footer remain usable while contributions load', async ({ page
   await page.route(api, () => {});
   await page.goto('/projects');
   await expect(page.getByRole('status')).toHaveText('Loading GitHub activity…');
-  await expect(page.locator('.project-list a')).toHaveCount(8);
+  await expect(page.locator('.project-list a')).toHaveCount(9);
   await expect(page.getByRole('contentinfo').getByRole('link', { name: 'Email', exact: true })).toBeVisible();
 });
 
