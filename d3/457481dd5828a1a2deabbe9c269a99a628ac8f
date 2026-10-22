@@ -1,0 +1,20 @@
+constants/projects.ts
+  s_3c0038d5d2448b::t_177c9937a683fe 7-9
+  s_3c0038d5d2448b::t_7dd9237dae61fb 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d3457481dd5828a1a2deabbe9c269a99a628ac8f",
+  "prompts": {},
+  "sessions": {
+    "s_3c0038d5d2448b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a161e1-d865-73b2-b8a7-0ee3ab1d9f19",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "brian-an <brian.an0906@hotmail.com>"
+    }
+  }
+}
