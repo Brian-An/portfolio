@@ -29,7 +29,7 @@ export const PROJECTS = [
   },
   {
     title: "C++ Chess Engine",
-    link: "https://student.cs.uwaterloo.ca/~cs246/W26/index.shtml",
+    link: "https://github.com/Brian-An/chess",
   },
   {
     title: "RevealAI",
